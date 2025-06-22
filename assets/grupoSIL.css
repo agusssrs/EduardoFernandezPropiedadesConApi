@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Onest", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: transform 0.6s;
+}
+
+body{
+    background: #ffffff;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* Header */
+
+header{
+    transition: all ease-in-out 0.2s;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    background:white;
+    justify-content: space-between;
+    align-items: center;
+    height: 95px;
+    padding: 0rem 0.5rem 0rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0px 0px 15px #666666;
+}
+
+.navbar,.navbarList, .navbarLinks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navbar{
+    gap: 20px;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
+
+.navbarList{
+    padding-right: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.navbarList a{
+    color: #3f3f3f;
+    font-size: 17px;
+}
+
+.navbarLinks {
+    font-weight: 600;
+}
+
+.inicio{
+    font-weight: 800;
+}
+
+.navbarList a:hover{
+    color: #007CC2;
+    text-shadow: 0px 0px 20px #007CC2;
+    transition: 0.2s;
+}
+
+.navbarList div{
+    font-size: 17px;
+}
+
+.home{
+    font-weight: 900;
+}
+
+.logo{
+    width: 160px;
+}
+
+#menuToggle,.menuLabel{
+    display: none;
+}
+
+.phoneNavbar svg{
+    width: 35px;
+    padding-right: 2px;
+}
+
+.navbarRedes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbarRedes li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoInstaNavbarLi a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.logoInstaNavbar{
+    width: 35px;
+}
+
+/* Media Query Header section styles */
+
+@media (max-width:933px){
+    .navbarRedes p{
+        font-size: 13px;
+    }
+}
+
+@media (max-width:920px){
+    .navbarRedes{
+        gap: 10px;
+    }
+
+    .navbarRedes img, .navbarRedes svg{
+        width: 30px;
+    }
+
+    .menuLabel{
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: flex-end;
+        top: 0;
+        color: #007CC2;
+    }
+
+    #menuToggle:checked + .navbarList{
+        display: flex;
+    }
+
+    .navbar{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 5px;
+    }
+
+    .navbarList{
+        position: absolute;
+        top: 95px;
+        width: 400px;
+        background: white;
+        border: 3px solid #007CC2;
+        border-top: 0px;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        text-align: center;
+        border-top: 0px;
+        gap: 15px;
+        z-index: 8;
+        padding: 25px 30px ;
+        display: none;
+    }
+
+    .navbarLinks{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:590px){
+    .navbarList{
+        width: 300px;
+    }
+}
+
+@media (max-width:500px){
+    .navbarList{
+        width: 95%;
+    }
+
+    .logo{
+        width: 130px;
+    }
+}
+
+@media (max-width:404px){
+    .navbarRedes img, .navbarRedes svg{
+        width: 25px;
+    }
+
+    .logo{
+        width: 110px;
+    }
+
+    .navbarRedes p{
+        font-size: 12px;
+    }
+}
+
+/* Grupo sil */
+
+#grupoSIL{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    margin-bottom: 25px;
+}
+
+.articleGrupoSIL{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grupoSILTittle{
+    font-size: 35px;
+}
+
+.grupoSILH2{
+    font-size: 25px; 
+}
+
+.ventajasSIL{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-left: 25px;
+}
+
+.ventajasSILCompra, .ventajasSILVenta{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupoSILTittle:hover, .grupoSILH2:hover, .grupoSILH3:hover{
+    color: #007CC2;
+    text-shadow: 0px 0px 30px #007CC2;
+    transition: 0.2s;
+}
+
+.articleGrupoSIL p{
+    text-wrap: pretty;
+    width: 800px;
+}
+
+.grupoSILUl{
+    display: flex;
+    flex-direction: column;
+    text-wrap: pretty;
+    width: 785px;
+    gap: 3px;
+}
+
+.grupoSILLi{
+    list-style-type: disc;
+}
+
+/* Media query zone grupo sil */
+
+@media (max-width: 933px){
+    .grupoSILTittle{
+        font-size: 25px;
+    }
+
+    .grupoSILH2{
+        font-size: 20px; 
+    }
+
+    .articleGrupoSIL p{
+        width: 700px;
+    }
+
+    .grupoSILUl{
+        width: 655px;
+    }
+}
+
+@media (max-width: 820px){
+    .grupoSILTittle{
+        font-size: 23px;
+    }
+
+    .grupoSILH2{
+        font-size: 19px; 
+    }
+
+    .grupoSILH3{
+        font-size: 16.5px;   
+    }
+
+    .articleGrupoSIL p{
+        font-size: 14px;
+        width: 600px;
+    }
+
+    .grupoSILUl{
+        font-size: 14px;
+        width: 555px;
+    }
+}
+
+@media (max-width: 660px){
+
+    .articleGrupoSIL p{
+        width: 500px;
+    }
+
+    .grupoSILUl{
+        width: 455px;
+    }
+}
+
+@media (max-width: 550px){
+    .grupoSILTittle{
+        font-size: 21px;
+    }
+
+    .grupoSILH2{
+        text-wrap: pretty;
+        width: 300px;
+        font-size: 17px; 
+    }
+
+    .grupoSILH3{
+        font-size: 15px;   
+    }
+
+    .articleGrupoSIL p{
+        font-size: 13px;
+        width: 440px;
+    }
+
+    .grupoSILUl{
+        font-size: 13px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 470px){
+    .articleGrupoSIL p{
+        width: 350px;
+    }
+
+    .grupoSILUl{
+        width: 300px;
+    }
+} 
+
+@media (max-width: 380px){
+    .grupoSILH2{
+        width: 250px;
+    }
+
+    .articleGrupoSIL p{
+        font-size: 12px;
+        width: 300px;
+    }
+
+    .grupoSILUl{
+        font-size: 12px;
+        width: 280px;
+    }
+} 
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background: #007CC2;
+    width: 100%;
+    height: 250px;
+    color: white;
+}
+
+.divFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    gap: 20px;
+    color: white;
+    padding-left: 10px;
+}
+
+.afipQr{
+    width: 80px;
+}
+
+.telefonosFooter, .emailYDireccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+    color: white;
+    text-align: left;
+}
+
+.telefonosFooter, .emailYDireccion a{
+    color: white;
+}
+
+@media (max-width:730px){
+    .divFooter, .pFooter{
+        font-size: 13px;
+    }
+}
+
+@media (max-width:560px){
+    .afipQr{
+        width: 65px;
+    }
+    .divFooter, .pFooter{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:500px){
+    footer{
+        height: 200px;
+    }
+    .divFooter{
+        gap: 10px;
+    }
+    .afipQr{
+        width: 55px;
+    }
+    .divFooter, .pFooter{
+        font-size: 11px;
+    }
+}
+
+@media (max-width:440px){
+    .afipQr{
+        width: 47px;
+    }
+    .divFooter, .pFooter{
+        font-size: 10px;
+    }
+}
+
+@media (max-width:390px){
+    footer{
+        height: 150px;
+    }
+    .divFooter{
+        gap: 5px;
+    }
+    .afipQr{
+        width: 43px;
+    }
+    .divFooter, .pFooter{
+        font-size: 9px;
+    }
+}
+
+@media (max-width:340px){
+    footer{
+        height: 150px;
+    }
+    .divFooter{
+        padding-left: 0;
+    }
+    .afipQr{
+        width: 43px;
+    }
+    .divFooter, .pFooter{
+        font-size: 9px;
+    }
+}

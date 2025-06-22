@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Detalle de Propiedad</title>
+        <link rel="stylesheet" href="/assets/detalle.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+
+    <body>
+        <header>
+            <img src="./assets/images/Logo-Eduardo-Fernandez-2016 (1).jpg" alt="Eduardo Fernandez Propiedades logo" class='logo' />
+            <nav class="navbar" id="nav">
+                <label for="menuToggle" class="menuLabel">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="34" height="34" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+                </label>
+                <input type="checkbox" id="menuToggle">                          
+                <div class="navbarList">                 
+                    <ul class="navbarLinks">
+                        <li><a href="./index.html" class="inicio">Inicio</a></li>
+                        <li><a href="#Properties">Propiedades destacadas</a></li>
+                        <li><a href="http://www.eduardofernandez.argencasas.com/filtro/" target="_blank">Ver todas las propiedades</a></li>
+                        <li><a href="#Contactanos">Contactanos</a></li>
+                        <li><a href="./grupoSIL.html">GrupoS.I.L</a></li>
+                    </ul>
+                </div> 
+                
+                <ul class="navbarRedes">                
+                    <li class="logoInstaNavbarLi">
+                        <a href="https://www.instagram.com/eduardofernandezpropiedades/">
+                            <img src="assets/logos-redes/instagram.png" alt="logoig" class='logoInstaNavbar'/>
+                            <!-- <p>Instagram</p> -->
+                        </a>                    
+                    </li>
+                    <li class="phoneNavbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="35px" height="35px" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="#ffffff" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
+                        <p>4240-2219</p>
+                    </li>
+                    <!-- <li>
+                        <img src="assets/logos-redes/location.png" alt="" class='locationNavbar'/>
+                        <p>Sitio de Montevideo 92 - Lanús Oeste</p>
+                    </li> -->
+                </ul>
+            </nav>   
+        </header>
+        <main id="detallePropiedad" class="detalle-grid">
+            <!-- Columna izquierda: carrusel -->
+            <div class="detalle-imagenes">
+                <div class="swiper swiper-detalle">
+                <div class="swiper-wrapper" id="imagenes"></div>
+                <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Columna derecha: info -->
+            <div class="detalle-info">
+                <h1 id="titulo"></h1>
+                <p id="direccion" class="direccion"></p>
+                <h2 id="precio"></h2>
+                <p id="descripcion"></p>
+            </div>
+        </main>
+        
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="/assets/detalle.js"></script>
+    </body>
+</html>
