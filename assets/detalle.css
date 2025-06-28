@@ -61,8 +61,19 @@ body {
 #banios, #dormitorios {
   font-size: 18px;
   margin: 5px 0;
-  color: #007CC2;
 }
+
+#banios .label,
+#dormitorios .label {
+  color: #007CC2; /* Azul para la etiqueta */
+  font-weight: 600;
+}
+
+#banios .valor,
+#dormitorios .valor {
+  color: #333; /* Color estándar para el valor */
+}
+
 
 #descripcion {
   font-size: 17px;

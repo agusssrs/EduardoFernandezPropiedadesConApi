@@ -56,8 +56,9 @@ const renderPropiedad = (prop) => {
   document.getElementById('direccion').innerText = direccion;
   document.getElementById('precio').innerText = precio;
   document.getElementById('descripcion').innerText = prop.descripcion || 'Sin descripción';
-  document.getElementById('banios').innerText = 'Baños: ' + banios;
-  document.getElementById('dormitorios').innerText = 'Dormitorios: ' + dormitorios;
+  document.getElementById('banios').innerHTML = `<span class="label">Baños:</span> <span class="valor">${banios}</span>`;
+  document.getElementById('dormitorios').innerHTML = `<span class="label">Dormitorios:</span> <span class="valor">${dormitorios}</span>`;
+
 
   const imgContainer = document.getElementById('imagenes');
   const imagenes = prop.imagenes || [];
