@@ -49,11 +49,15 @@ const renderPropiedad = (prop) => {
   const titulo = `${tipoNombre} en ${operacionNombre}`;
   const direccion = `${prop.calle || ''} ${prop.altura || ''}`;
   const precio = (prop.moneda === 1 ? '$' : 'U$D') + (prop.valor || 'Consultar');
+  const banios = (prop.banios || 0);
+  const dormitorios = (prop.dormitorios || 0);
 
   document.getElementById('titulo').innerText = titulo;
   document.getElementById('direccion').innerText = direccion;
   document.getElementById('precio').innerText = precio;
   document.getElementById('descripcion').innerText = prop.descripcion || 'Sin descripción';
+  document.getElementById('banios').innerText = 'Baños: ' + banios;
+  document.getElementById('dormitorios').innerText = 'Dormitorios: ' + dormitorios;
 
   const imgContainer = document.getElementById('imagenes');
   const imagenes = prop.imagenes || [];

@@ -90,13 +90,13 @@ const displayProperties = (tipoFiltro) => {
                     </div>
                     <div class="swiper-pagination"></div>              
                 </div> 
-                <a href="${link}" class='aProperty' target="_blank">
+                <a href="${link}" class='aProperty'>
                     <h2>${titulo}</h2>
                     <p>${direccion}</p>
                     <p class='propertyDescription'>${descripcion.slice(0, 150)}...</p>
                     <p>${precio}</p>
                 </a>                
-                <a href="${link}" class="verProp" target="_blank">Ver propiedad</a>
+                <a href="${link}" class="verProp">Ver propiedad</a>
             </div>`;
         propertiesCards.appendChild(div);
     });

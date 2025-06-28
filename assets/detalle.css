@@ -58,6 +58,12 @@ body {
   color: #007CC2;
 }
 
+#banios, #dormitorios {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #007CC2;
+}
+
 #descripcion {
   font-size: 17px;
   line-height: 1.6;
