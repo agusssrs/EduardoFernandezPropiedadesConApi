@@ -1,20 +1,36 @@
+// Diccionarios bien definidos y rigurosos
 const tipos = {
-  0: 'propiedad',
-  1: 'local',
-  2: 'terreno',
-  3: 'departamento',
-  4: 'casa',
-  8: 'galpón',
-  11: 'ph',
-  17: 'semipiso',
-  22: 'chalet',
-  25: 'inmueble comercial'
+    0: 'casa',
+    1: 'chalet',
+    2: 'duplex',
+    3: 'dpto tipo casa',
+    4: 'departamento',
+    8: 'galpon',
+    11: 'local',
+    12: 'oficina',
+    14: 'lote',
+    16: 'casa 2 familias',
+    17: 'casa PH',
+    18: 'chalet PH',
+    20: 'galpon con vivienda',
+    21: 'local con vivienda',
+    22: 'cochera',
+    23: 'salon',
+    24: 'inmueble comercial',
+    25: 'semipiso',
+    27: 'triplex',
+    28: 'vivienda en blocks',
+    29: 'casa con dpto',
+    30: 'fraccion',
+    32: 'monoambiente',
+    40: 'cabaña'
 };
 
 const operaciones = {
-  0: 'venta',
-  1: 'alquiler'
-};
+    0: 'venta',
+    1: 'venta condicionada',
+    2: 'alquiler'
+};  
 
 const getPropId = () => {
   const params = new URLSearchParams(window.location.search);
@@ -28,7 +44,9 @@ const fetchPropiedad = async (id) => {
 };
 
 const renderPropiedad = (prop) => {
-  const titulo = `${tipos[prop.tipo] || 'propiedad'} en ${operaciones[prop.operacion] || ''}`;
+  const tipoNombre = tipos[prop.tipo] || 'propiedad';
+  const operacionNombre = operaciones[prop.operacion] || 'operación';
+  const titulo = `${tipoNombre} en ${operacionNombre}`;
   const direccion = `${prop.calle || ''} ${prop.altura || ''}`;
   const precio = (prop.moneda === 1 ? '$' : 'U$D') + (prop.valor || 'Consultar');
 
@@ -71,7 +89,6 @@ const renderPropiedad = (prop) => {
 const main = async () => {
   const id = getPropId();
   if (!id) return;
-
   const propiedad = await fetchPropiedad(id);
   if (propiedad) {
     renderPropiedad(propiedad);

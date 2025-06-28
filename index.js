@@ -5,30 +5,44 @@ const propertiesCards = document.querySelector('.properties');
 let swiper;
 let properties = [];
 
-// Mapeo de tipos y operaciones
+// Diccionarios bien definidos y rigurosos
 const tipos = {
-    0: 'propiedad',
-    1: 'local',
-    2: 'terreno',
-    3: 'departamento',
-    4: 'casa',
-    8: 'galpón',
-    11: 'ph',
-    17: 'semipiso',
-    22: 'chalet',
-    25: 'inmueble comercial'
+    0: 'casa',
+    1: 'chalet',
+    2: 'duplex',
+    3: 'dpto tipo casa',
+    4: 'departamento',
+    8: 'galpon',
+    11: 'local',
+    12: 'oficina',
+    14: 'lote',
+    16: 'casa 2 familias',
+    17: 'casa PH',
+    18: 'chalet PH',
+    20: 'galpon con vivienda',
+    21: 'local con vivienda',
+    22: 'cochera',
+    23: 'salon',
+    24: 'inmueble comercial',
+    25: 'semipiso',
+    27: 'triplex',
+    28: 'vivienda en blocks',
+    29: 'casa con dpto',
+    30: 'fraccion',
+    32: 'monoambiente',
+    40: 'cabaña'
 };
 
 const operaciones = {
     0: 'venta',
-    1: 'alquiler'
+    1: 'venta condicionada',
+    2: 'alquiler'
 };
 
 const fetchProperties = async () => {
     try {
         const response = await fetch('https://api.argencasas.com/props?api_key=6b8d4ba4dfdeadbe7ffe3ba8e40cb162');
         const data = await response.json();
-        console.log("Datos recibidos:", data);
         properties = data.records || [];
         displayProperties('todos');
     } catch (error) {
@@ -47,16 +61,25 @@ const displayProperties = (tipoFiltro) => {
 
     filtradas.forEach((property) => {
         const tipoNombre = tipos[property.tipo] || 'propiedad';
-        const operacionNombre = operaciones[property.operacion] || '';
+        const operacionNombre = operaciones[property.operacion] || 'operación';
         const titulo = `${tipoNombre} en ${operacionNombre}`;
 
+
         const direccion = `${property.calle || 'Dirección'} ${property.altura || ''}`;
-        const precio = (property.moneda === 1 ? '$' : 'U$D'|| property.moneda === 0 ? 'U$D' : '$') + (property.valor || 'Consultar');
+        const precio = (property.moneda === 1 ? '$' : 'U$D') + (property.valor || 'Consultar');
         const imagen = property.imagenes?.[0] || 'https://via.placeholder.com/300x200?text=Sin+imagen';
         const descripcion = property.descripcion || 'Sin descripción';
-        const link = `detalle.html?id=${property.nro}`; // construimos el link
+        const link = `detalle.html?id=${property.nro}`;
 
         const div = document.createElement('div');
+        console.log({
+            tipo: property.tipo,
+            operacion: property.operacion,
+            tipoNombre,
+            operacionNombre,
+            titulo
+        });
+
         div.innerHTML = `
             <div class="propertyCard">        
                 <div class="swiper swiper-properties">
@@ -67,13 +90,13 @@ const displayProperties = (tipoFiltro) => {
                     </div>
                     <div class="swiper-pagination"></div>              
                 </div> 
-                <a href="${link}" class='aProperty'>
+                <a href="${link}" class='aProperty' target="_blank">
                     <h2>${titulo}</h2>
                     <p>${direccion}</p>
                     <p class='propertyDescription'>${descripcion.slice(0, 150)}...</p>
                     <p>${precio}</p>
                 </a>                
-                <a href="${link}" class="verProp">Ver propiedad</a>
+                <a href="${link}" class="verProp" target="_blank">Ver propiedad</a>
             </div>`;
         propertiesCards.appendChild(div);
     });
@@ -85,7 +108,7 @@ const initSwiper = () => {
     if (swiper) swiper.destroy(true, true);
     swiper = new Swiper('.swiper-properties', {
         direction: 'horizontal',
-        loop: false, // desactivamos loop si hay una sola imagen
+        loop: false,
         autoplay: {
             delay: 3000,
         },
@@ -97,13 +120,11 @@ const initSwiper = () => {
 };
 
 botonAlquiler.addEventListener('click', () => displayProperties('alquiler'));
-botonVenta.addEventListener('click', () => displayProperties('venta'));
+botonVenta.addEventListener('click', () => displayProperties('venta'&&'venta condicionada'));
 botonQuitarFiltros.addEventListener('click', () => displayProperties('todos'));
 
-// Carga inicial
 fetchProperties();
 
-// Swiper del Hero
 new Swiper('.swiper-hero', {
     direction: 'horizontal',
     loop: true,
