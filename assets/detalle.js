@@ -38,7 +38,7 @@ const getPropId = () => {
 };
 
 const fetchPropiedad = async (id) => {
-  const response = await fetch('https://server-api-argencasas.vercel.app/props');
+  const response = await fetch('https://server-api-argencasas-rzfg.vercel.app/api/props');
   const data = await response.json();
   return data.records.find(p => p.nro == id);
 };
