@@ -41,7 +41,7 @@ const operaciones = {
 
 const fetchProperties = async () => {
     try {
-        const response = await fetch('https://server-api-argencasas.vercel.app/props');
+        const response = await fetch('https://server-api-argencasas-rzfg.vercel.app/props');
         const data = await response.json();
         properties = data.records || [];
         displayProperties('todos');
